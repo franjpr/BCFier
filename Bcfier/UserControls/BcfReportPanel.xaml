@@ -13,38 +13,38 @@
   d:DesignWidth="900"
   Loaded="BcfReportPanel_OnLoaded"
   mc:Ignorable="d">
-  <UserControl.Resources>
-    <ResourceDictionary>
-      <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../Themes/IssueListStyle.xaml" />
-        <ResourceDictionary Source="../Themes/ViewCommentListStyle.xaml" />
-        <ResourceDictionary Source="../Themes/Icons.xaml" />
-        <ResourceDictionary Source="../Themes/ScrollViewer.xaml" />
-        <ResourceDictionary Source="../Themes/ButtonStyles.xaml" />
-        <ResourceDictionary Source="../Themes/ViewCommentDataTemplate.xaml" />
-      </ResourceDictionary.MergedDictionaries>
-      <src:IntPluralConverter x:Key="IntPluralConverter" />
-      <src:DateConverter x:Key="DateConverter" />
-      <src:IntVisibConverter x:Key="IntVisibConverter" />
-      <src:PathToImageConv x:Key="PathToImageConv" />
-      <src:BoolVisibConverter x:Key="BoolVisibConverter" />
-    </ResourceDictionary>
-  </UserControl.Resources>
-  <Grid Background="{StaticResource BackgroundLight}">
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="40*" />
-      <ColumnDefinition Width="3" />
-      <ColumnDefinition Width="60*" />
-    </Grid.ColumnDefinitions>
-    <!--  MAIN GRID - COLUMN 1  -->
-    <Grid Background="{StaticResource BackgroundDark}">
-      <Grid.RowDefinitions>
-        <RowDefinition Height="auto" />
-        <RowDefinition Height="auto" />
-        <RowDefinition Height="*" />
-        <RowDefinition Height="auto" />
-      </Grid.RowDefinitions>
-      <themes:TextPlaceholder
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Themes/IssueListStyle.xaml" />
+                <ResourceDictionary Source="../Themes/ViewCommentListStyle.xaml" />
+                <ResourceDictionary Source="../Themes/Icons.xaml" />
+                <ResourceDictionary Source="../Themes/ScrollViewer.xaml" />
+                <ResourceDictionary Source="../Themes/ButtonStyles.xaml" />
+                <ResourceDictionary Source="../Themes/ViewCommentDataTemplate.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <src:IntPluralConverter x:Key="IntPluralConverter" />
+            <src:DateConverter x:Key="DateConverter" />
+            <src:IntVisibConverter x:Key="IntVisibConverter" />
+            <src:PathToImageConv x:Key="PathToImageConv" />
+            <src:BoolVisibConverter x:Key="BoolVisibConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="{StaticResource BackgroundLight}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="3" />
+            <ColumnDefinition Width="60*" />
+        </Grid.ColumnDefinitions>
+        <!--  MAIN GRID - COLUMN 1  -->
+        <Grid Background="{StaticResource BackgroundDark}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <themes:TextPlaceholder
         x:Name="SearchBox"
         Grid.Row="1"
         Margin="5"
@@ -53,7 +53,7 @@
         Placeholder="Search issues..."
         Text="{Binding TextSearch, UpdateSourceTrigger=PropertyChanged}"
         ToolTip="Search within title, description and comments..." />
-      <ListView
+            <ListView
         x:Name="IssueList"
         Grid.Row="2"
         Margin="0"
@@ -69,53 +69,53 @@
         SelectedIndex="0"
         SelectedItem="{Binding SelectedIssue}"
         SelectionMode="Extended">
-        <ListView.ItemTemplate>
-          <DataTemplate>
-            <Grid>
-              <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-              </Grid.RowDefinitions>
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="1*" />
-              </Grid.ColumnDefinitions>
-              <!--  Crop the image so it's squared  -->
-              <Grid
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <!--  Crop the image so it's squared  -->
+                            <Grid
                 Grid.RowSpan="2"
                 MaxWidth="60"
                 MaxHeight="60"
                 Margin="0,0,5,0"
                 HorizontalAlignment="Stretch">
-                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                  <Image
+                                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                    <Image
                     Style="{StaticResource ImageNullSource}"
                     Source="{Binding Viewpoints[0].SnapshotPath, Converter={StaticResource PathToImageConv}, UpdateSourceTrigger=PropertyChanged}"
                     Stretch="Fill" />
-                </StackPanel>
-              </Grid>
-              <Grid Grid.Row="0" Grid.Column="1">
-                <Label
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Row="0" Grid.Column="1">
+                                <Label
                   Margin="2,2,2,0"
                   VerticalAlignment="Bottom"
                   FontWeight="Bold"
                   Content="{Binding Topic.Title, TargetNullValue='New Issue'}" />
-              </Grid>
-              <Border
+                            </Grid>
+                            <Border
                 Grid.Row="1"
                 Grid.Column="1"
                 Padding="0,0,0,4"
                 HorizontalAlignment="Stretch"
                 BorderBrush="{StaticResource BackgroundLight}"
                 BorderThickness="0,0,0,1">
-                <DockPanel>
-                  <Label
+                                <DockPanel>
+                                    <Label
                     VerticalAlignment="Bottom"
                     FontSize="11"
                     FontStyle="Italic"
                     Content="{Binding Topic.CreationDate, Converter={StaticResource DateConverter}, ConverterParameter='relative'}"
                     ToolTip="{Binding Topic.CreationDate, Converter={StaticResource DateConverter}}" />
-                  <Path
+                                    <Path
                     Width="11"
                     Height="11"
                     Margin="3,0,0,8"
@@ -125,12 +125,12 @@
                     Stretch="Uniform"
                     ToolTip="{Binding Viewpoints.Count, Converter={StaticResource IntPluralConverter}, ConverterParameter='%0% Viewpoint%s%'}"
                     UseLayoutRounding="False" />
-                  <Label
+                                    <Label
                     VerticalAlignment="Bottom"
                     FontSize="11"
                     Content="{Binding Viewpoints.Count}"
                     ToolTip="{Binding Viewpoints.Count, Converter={StaticResource IntPluralConverter}, ConverterParameter='%0% Viewpoint%s%'}" />
-                  <Path
+                                    <Path
                     Width="11"
                     Height="11"
                     Margin="3,0,0,8"
@@ -140,34 +140,34 @@
                     Stretch="Uniform"
                     ToolTip="{Binding Comment.Count, Converter={StaticResource IntPluralConverter}, ConverterParameter='%0% Comment%s%'}"
                     UseLayoutRounding="False" />
-                  <Label
+                                    <Label
                     VerticalAlignment="Bottom"
                     FontSize="11"
                     Content="{Binding Comment.Count}"
                     ToolTip="{Binding Comment.Count, Converter={StaticResource IntPluralConverter}, ConverterParameter='%0% Comment%s%'}" />
-                  <Label
+                                    <Label
                     VerticalAlignment="Bottom"
                     FontSize="11"
                     FontWeight="Bold"
                     Content="{Binding LastCommentStatus}"
                     ToolTip="Status" />
-                </DockPanel>
-              </Border>
-            </Grid>
-            <DataTemplate.Triggers>
-              <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-                <BeginStoryboard Storyboard="{StaticResource FadeInStoryboard}" />
-              </EventTrigger>
-            </DataTemplate.Triggers>
-          </DataTemplate>
-        </ListView.ItemTemplate>
-      </ListView>
-      <!--  DOCK PANELS ******************************************************************************************************************************  -->
-      <UniformGrid
+                                </DockPanel>
+                            </Border>
+                        </Grid>
+                        <DataTemplate.Triggers>
+                            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                                <BeginStoryboard Storyboard="{StaticResource FadeInStoryboard}" />
+                            </EventTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--  DOCK PANELS ******************************************************************************************************************************  -->
+            <UniformGrid
         Grid.Row="0"
         Background="{StaticResource BackgroundLight}"
         Rows="1">
-        <themes:ButtonIcon
+                <themes:ButtonIcon
           x:Name="AddIssueBtn"
           Margin="5,5,0,5"
           Style="{StaticResource AddViewCommentStyle}"
@@ -177,7 +177,7 @@
           IconColor="Green"
           IconPath="{StaticResource IconAdd}"
           ToolTip="Add Issue" />
-        <themes:ButtonIcon
+                <themes:ButtonIcon
           x:Name="AddIssuesBtn"
           Margin="0,5,0,5"
           Style="{StaticResource AddViewCommentStyle}"
@@ -188,7 +188,7 @@
           IconPath="{StaticResource IconAdd}"
           ToolTip="Batch Add Issues"
           Visibility="{Binding Path=IsEnabled, RelativeSource={RelativeSource Self}, Mode=OneWay, Converter={StaticResource BoolVisibConverter}}" />
-        <themes:ButtonIcon
+                <themes:ButtonIcon
           x:Name="DelIssueBtn"
           Margin="0,5,5,5"
           Style="{StaticResource AddViewCommentStyle}"
@@ -200,29 +200,29 @@
           IconColor="Red"
           IconPath="{StaticResource IconDelete}"
           ToolTip="Delete selected" />
-      </UniformGrid>
-      <DockPanel
+            </UniformGrid>
+            <DockPanel
         Grid.Row="3"
         Grid.Column="0"
         Height="30"
         HorizontalAlignment="Stretch"
         Background="{StaticResource BackgroundLight}">
-        <Label
+                <Label
           Margin="5,0"
           HorizontalAlignment="Left"
           FontStyle="Italic"
           Content="{Binding ElementName=IssueList, Path=Items.Count, Converter={StaticResource IntPluralConverter}, ConverterParameter='%0% Issue%s%'}"
           DockPanel.Dock="Left" />
-        <Label
+                <Label
           Margin="0"
           HorizontalAlignment="Left"
           FontStyle="Italic"
           Content="{Binding ElementName=IssueList, Path=SelectedItems.Count, Converter={StaticResource IntPluralConverter}, ConverterParameter='%0% Selected'}"
           DockPanel.Dock="Left" />
-      </DockPanel>
-    </Grid>
-    <!--  MAIN GRID - COLUMN 2  -->
-    <GridSplitter
+            </DockPanel>
+        </Grid>
+        <!--  MAIN GRID - COLUMN 2  -->
+        <GridSplitter
       Grid.RowSpan="3"
       Grid.Column="1"
       Margin="0"
@@ -231,32 +231,32 @@
       VerticalAlignment="Stretch"
       Background="{StaticResource BackgroundLight}"
       BorderThickness="0" />
-    <!--  MAIN GRID - COLUMN 3  -->
-    <!--    -->
-    <Grid
+        <!--  MAIN GRID - COLUMN 3  -->
+        <!--    -->
+        <Grid
       Grid.Column="2"
       DataContext="{Binding ElementName=IssueList, Path=SelectedItem}"
       Visibility="{Binding ElementName=IssueList, Path=SelectedItems.Count, Converter={StaticResource IntVisibConverter}}">
-      <Grid.RowDefinitions>
-        <RowDefinition Height="Auto" />
-        <RowDefinition Height="*" />
-      </Grid.RowDefinitions>
-      <!--  ISSUE INFO  -->
-      <Grid
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <!--  ISSUE INFO  -->
+            <Grid
         Grid.Row="0"
         Grid.ColumnSpan="4"
         Margin="15,10,15,0">
-        <Grid.RowDefinitions>
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="*" />
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <themes:TextPlaceholder
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" MinHeight="25" />
+                    <RowDefinition Height="Auto" MinHeight="65" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <themes:TextPlaceholder
           x:Name="TextBox_Title"
           Grid.Row="0"
           Grid.ColumnSpan="2"
@@ -267,29 +267,52 @@
           FontWeight="Bold"
           Binding.SourceUpdated="TextBox_OnTextChanged"
           Placeholder="Issue Title"
-          Text="{Binding Topic.Title, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" />
-        <StackPanel
-          Grid.Row="1"
-          Grid.ColumnSpan="2"
-          Orientation="Horizontal">
-          <Label
-            VerticalAlignment="Bottom"
-            FontSize="11"
-            FontStyle="Italic"
-            Content="{Binding Topic.CreationDate, Converter={StaticResource DateConverter}}" />
-          <Label
-            VerticalAlignment="Bottom"
-            FontSize="11"
-            FontWeight="Bold"
-            Content="{Binding LastCommentStatus}"
-            ToolTip="Status" />
-          <Label
-            VerticalAlignment="Bottom"
-            FontSize="11"
-            Content="{Binding LastCommentVerbalStatus}"
-            ToolTip="Verbal Status" />
-        </StackPanel>
-        <themes:TextPlaceholder
+          Text="{Binding Topic.Title, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" Height="25" />
+                <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Width="auto">
+                    <StackPanel Grid.Column="0">
+                        <Label
+                        Grid.Column="0"
+                        VerticalAlignment="Bottom"
+                        FontSize="11"
+                        FontStyle="Italic"
+                        Content="{Binding Topic.CreationDate, Converter={StaticResource DateConverter}}" />
+                        <Label
+                        VerticalAlignment="Bottom"
+                        FontSize="11"
+                        FontWeight="Bold"
+                        Content="{Binding LastCommentStatus}"
+                        ToolTip="Status" />
+                        <Label
+                        VerticalAlignment="Bottom"
+                        FontSize="11"
+                        Content="{Binding LastCommentVerbalStatus}"
+                        ToolTip="Verbal Status" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" Width="250" >
+                            <Label                        
+                                VerticalAlignment="Bottom"
+                                FontSize="11"
+                                Content="Author:" Width="auto"/>
+                            <themes:TextPlaceholder 
+                                Placeholder="Username" 
+                                Text="{Binding Topic.CreationAuthor, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" 
+                                Width="204"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label
+                                VerticalAlignment="Bottom"
+                                FontSize="11"
+                                Content="Assigned to:"/>
+                            <themes:TextPlaceholder
+                                Placeholder="Username"
+                                Text="{Binding Topic.AssignedTo, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
+                                Width="180"></themes:TextPlaceholder>
+                        </StackPanel>
+                    </StackPanel>
+                    
+                </StackPanel>
+                <themes:TextPlaceholder
           Grid.Row="2"
           Grid.ColumnSpan="2"
           MaxHeight="60"
@@ -300,7 +323,7 @@
           Placeholder="Description"
           Text="{Binding Topic.Description, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"
           TextWrapping="Wrap" />
-        <themes:ButtonIcon
+                <themes:ButtonIcon
           Grid.Row="3"
           Grid.Column="1"
           Style="{StaticResource AddViewCommentStyle}"
@@ -309,7 +332,7 @@
           Content="Add Comment"
           IconColor="{StaticResource PrimaryLight}"
           IconPath="{StaticResource IconAdd}" />
-        <themes:ButtonIcon
+                <themes:ButtonIcon
           Grid.Row="3"
           Grid.Column="0"
           Style="{StaticResource AddViewCommentStyle}"
@@ -319,23 +342,8 @@
           Content="Add View"
           IconColor="{StaticResource PrimaryLight}"
           IconPath="{StaticResource IconAdd}" />
-      </Grid>
-      <!-- <StackPanel Orientation="Horizontal" Grid.Row="1"  >
-
-        <Button Margin="5" Cursor="Hand" ToolTip="Click to open Snapshot"
-                Visibility="{Binding  ElementName=IssueList, Path=SelectedItems.Count, Converter={StaticResource IntVisibConverter}}"
-                HorizontalAlignment="Stretch"   Grid.Row="0" VerticalAlignment="Stretch" Height="60"  Name="OpenImageBtn"
-                Tag="{Binding snapshot}" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
-            <Grid>
-              <Image Height="60" Width="100" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                   Source="{Binding snapshot, Converter={StaticResource PathToImageConv}}" />
             </Grid>
-          </Button>-->
-      <!--<StackPanel Orientation="Vertical">
-          </StackPanel>
-      </StackPanel>-->
-      <!--  VIEWPOINT  -->
-      <ListView
+            <ListView
         Name="ViewCommList"
         Grid.Row="1"
         Margin="0,5,0,0"
@@ -349,8 +357,8 @@
         ScrollViewer.CanContentScroll="False"
         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
         ScrollViewer.VerticalScrollBarVisibility="Visible" />
-      <!--  VIEWPOINTS CONTROLS  -->
-      <!--<DockPanel  >
+            <!--  VIEWPOINTS CONTROLS  -->
+            <!--<DockPanel  >
         <util:ButtonIcon Command="data:Commands.AddView" CommandParameter="{Binding ElementName=IssueList, Path=SelectedItem}" ToolTip="Add View" DockPanel.Dock="Left" Name="AddViewBtn" Margin="2" Style="{StaticResource IssuesSelectedEnablerStyle}"
                     Content="Add View" IconColor="Green" IconPath="{StaticResource IconAdd}"/>
         <util:ButtonIcon Command="data:Commands.DeleteViews" ToolTip="Delete selected view" DockPanel.Dock="Left" Margin="2"  Name="DelViewBtn" HorizontalAlignment="Left"
@@ -377,6 +385,6 @@
                             HorizontalAlignment="Left"  IconColor="#00A2E1" IconPath="{StaticResource IconList}"
                            Style="{StaticResource ViewSelectedEnablerStyle}"/>
       </DockPanel>-->
+        </Grid>
     </Grid>
-  </Grid>
 </UserControl>

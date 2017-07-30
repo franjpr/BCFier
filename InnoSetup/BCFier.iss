@@ -47,9 +47,6 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: checkedonce
 
 [Components]
-Name: revit15; Description: Addin for Autodesk Revit 2015; Types: full 
-Name: revit16; Description: Addin for Autodesk Revit 2016;  Types: full
-Name: revit17; Description: Addin for Autodesk Revit 2017;  Types: full
 Name: standalone; Description: BCFier for Windows (standalone viewer); Types: full
 
 
@@ -58,25 +55,9 @@ Name: "{app}"; Permissions: everyone-full
 
 [Files]
 ;STANDALONE
-Source: "{#Repository}\{#WinAppName}\bin\Release\{#WinAppName}.exe"; DestDir: "{app}"; Flags: ignoreversion; Permissions: everyone-full; Components: standalone
-Source: "{#Repository}\{#WinAppName}\bin\Release\Bcfier.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: standalone
+Source: "{#Repository}\{#WinAppName}\bin\Debug\{#WinAppName}.exe"; DestDir: "{app}"; Flags: ignoreversion; Permissions: everyone-full; Components: standalone
+Source: "{#Repository}\{#WinAppName}\bin\Debug\Bcfier.dll"; DestDir: "{app}"; Flags: ignoreversion; Components: standalone
 Source: "{#Repository}\Assets\BCF.ico"; DestDir: "{app}"; Flags: ignoreversion; Components: standalone
-
-;REVIT 2015                                                                                                                                        
-Source: "{#Repository}\{#RevitAppName}\bin\Release-2015\{#RevitAppName}.dll"; DestDir: "{#RevitFolder15}"; Flags: ignoreversion; Components: revit15  
-Source: "{#Repository}\{#RevitAppName}\bin\Release-2015\{#RevitAppName}.addin"; DestDir: "{#RevitAddin15}"; Flags: ignoreversion; Components: revit15
-Source: "{#Repository}\{#RevitAppName}\bin\Release-2015\Bcfier.dll"; DestDir: "{#RevitFolder15}"; Flags: ignoreversion; Components: revit15
-
-;REVIT 2016                                                                                                                                        
-Source: "{#Repository}\{#RevitAppName}\bin\Release-2016\{#RevitAppName}.dll"; DestDir: "{#RevitFolder16}"; Flags: ignoreversion; Components: revit16  
-Source: "{#Repository}\{#RevitAppName}\bin\Release-2016\{#RevitAppName}.addin"; DestDir: "{#RevitAddin16}"; Flags: ignoreversion; Components: revit16
-Source: "{#Repository}\{#RevitAppName}\bin\Release-2016\Bcfier.dll"; DestDir: "{#RevitFolder16}"; Flags: ignoreversion; Components: revit16
-
-;REVIT 2017                                                                                                                                     
-Source: "{#Repository}\{#RevitAppName}\bin\Release-2017\{#RevitAppName}.dll"; DestDir: "{#RevitFolder17}"; Flags: ignoreversion; Components: revit17  
-Source: "{#Repository}\{#RevitAppName}\bin\Release-2017\{#RevitAppName}.addin"; DestDir: "{#RevitAddin17}"; Flags: ignoreversion; Components: revit17
-Source: "{#Repository}\{#RevitAppName}\bin\Release-2017\Bcfier.dll"; DestDir: "{#RevitFolder17}"; Flags: ignoreversion; Components: revit17
-
 
 
 [Icons]

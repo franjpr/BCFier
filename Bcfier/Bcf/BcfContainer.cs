@@ -265,9 +265,7 @@ namespace Bcfier.Bcf
         if (!Directory.Exists(bcffile.TempPath))
           Directory.CreateDirectory(bcffile.TempPath);
         // Show save file dialog box
-        string name = !string.IsNullOrEmpty(bcffile.Filename)
-            ? bcffile.Filename
-            : "New BCF Report";
+        string name = !string.IsNullOrEmpty(bcffile.Filename) ? bcffile.Filename : "New BCF Report";
         string filename = SaveBcfDialog(name);
 
         // Process save file dialog box results
