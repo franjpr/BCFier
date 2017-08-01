@@ -289,15 +289,15 @@
                         ToolTip="Verbal Status" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal" Width="250" >
+                        <StackPanel Orientation="Horizontal" >
                             <Label                        
                                 VerticalAlignment="Bottom"
                                 FontSize="11"
-                                Content="Author:" Width="auto"/>
+                                Content="Author:" Width="71" />
                             <themes:TextPlaceholder 
-                                Placeholder="Username" 
+                                Placeholder="Github username" 
                                 Text="{Binding Topic.CreationAuthor, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" 
-                                Width="204"/>
+                                Width="150"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label
@@ -305,9 +305,9 @@
                                 FontSize="11"
                                 Content="Assigned to:"/>
                             <themes:TextPlaceholder
-                                Placeholder="Username"
+                                Placeholder="Github username1, username2, username3 ..."
                                 Text="{Binding Topic.AssignedTo, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
-                                Width="180"></themes:TextPlaceholder>
+                                Width="297"></themes:TextPlaceholder>
                         </StackPanel>
                     </StackPanel>
                     

@@ -45,7 +45,7 @@
                 Height="25"
                 Margin="5"
                 HorizontalAlignment="Stretch"
-                Placeholder="First and Last" />
+                Placeholder="Github username" />
               <StackPanel
                 Grid.Row="1"
                 Grid.Column="0"
