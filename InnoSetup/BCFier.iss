@@ -1,7 +1,7 @@
 ;defining variables
 #define Repository     "..\."
 #define MyAppName      "BCFier"
-#define MyAppVersion GetFileVersion("..\Bcfier\bin\Release\Bcfier.dll")
+#define MyAppVersion GetFileVersion("..\Bcfier.XbimXplorer\bin\Debug\Bcfier.dll")
 #define MyAppPublisher "Matteo Cominetti"
 #define MyAppURL       "http://www.bcfier.com/"
 #define MyAppExeName   "Bcfier.Win.exe"
